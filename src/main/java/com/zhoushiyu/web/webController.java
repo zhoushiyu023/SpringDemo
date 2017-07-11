@@ -21,8 +21,8 @@ public class webController {
 		return "userPage";
 	}
 	@RequestMapping(value = "/userMsg.html")
-	public ModelAndView getUserMsg(HttpServletRequest request, String userName) {
-		User user = userService.getUserMsg(userName);
+	public ModelAndView getUserMsg(HttpServletRequest request, String userName, String userPassword) {
+		User user = userService.getUserMsg(userName,userPassword);
 		if(user.getUserID() <= 0) {
 			return new ModelAndView("userPage","error","无此用户");
 		} else {

@@ -16,13 +16,13 @@ import com.zhoushiyu.domain.Book;
 
 @Component
 public class BookDao {
-	private JdbcTemplate jdbcTemplate;
+	/*private JdbcTemplate jdbcTemplate;
 	@Autowired //自动注入JdbcTemplate 的 bean
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
-	}
+	}*/
 	
-	public Book getBookMsg(String bookName) {
+	/*public Book getBookMsg(String bookName) {
 		final Book book = new Book();
 		String sqlstr = " SELECT * FROM book WHERE bookName = ? ";
 		jdbcTemplate.query(sqlstr, new Object[] {bookName}, new RowCallbackHandler() {
@@ -90,5 +90,5 @@ public class BookDao {
 	
 	public int add() {
 		return 1;
-	}
+	}*/
 }

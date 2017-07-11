@@ -13,13 +13,18 @@ import com.zhoushiyu.domain.User;
 
 @Repository
 public class UserDao {
-	private JdbcTemplate jdbcTemplate;
+	/*private JdbcTemplate jdbcTemplate;
 	@Autowired //自动注入JdbcTemplate 的 bean
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
-	}
+	}*/
 	
-	public User getUserMsg(String userName) {
+	/*
+	 * 使用mybatis进行数据库访问
+	 */
+	
+	
+	/*public User getUserMsg(String userName) {
 		final User user = new User();
 		String sqlstr = " SELECT * FROM user WHERE userName = ? ";
 		jdbcTemplate.query(sqlstr, new Object[] {userName}, new RowCallbackHandler() {
@@ -44,7 +49,7 @@ public class UserDao {
 		});
 	}
 	
-	public int delete(final User user) {
+	public int deleteUser(final User user) {
 		String sqlstr = " DELETE TABLE user WHERE userID = ?";
 		return jdbcTemplate.update(sqlstr, new PreparedStatementSetter () {
 
@@ -52,5 +57,5 @@ public class UserDao {
 				ps.setInt(1, user.getUserID());  
 			}  
 		});
-	}
+	}*/
 }

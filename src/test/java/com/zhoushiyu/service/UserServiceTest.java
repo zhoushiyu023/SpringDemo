@@ -9,10 +9,10 @@ import com.zhoushiyu.dao.BookDao;
 import com.zhoushiyu.domain.User;
 
 
-@ContextConfiguration("classpath*:zhoushiyu-context.xml")//Æô¶¯SpringÈÝÆ÷
+@ContextConfiguration(locations = {"classpath*:zhoushiyu-context.xml","classpath*:spring-mybatis.xml"})//Æô¶¯SpringÈÝÆ÷
 public class UserServiceTest extends AbstractJUnit4SpringContextTests {
 	private UserService userService;
-	private User user;
+	//private User user;
 	
 	@Autowired
 	public void setUserService(UserService userService) {
@@ -22,12 +22,12 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
 	
 	@Test
 	public void getUserMsg() {
-		
-		User user = new User();
+		System.out.println(userService.getUserMsg("zhoushiyu", "123456"));
+		/*User user = new User();
 		user.setUserName("zhoushiyu");
 		if(userService.addUser(user)) {
 			System.out.print(true);
-		}
+		}*/
 		
 		//bookDao.add(); 
 		//assert(bookDao==null);

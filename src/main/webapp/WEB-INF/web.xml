@@ -16,7 +16,7 @@ version="2.5">
   
   <context-param>
   	<param-name>contextConfigLocation</param-name>
-  	<param-value>classpath:zhoushiyu-context.xml</param-value>
+  	<param-value>classpath:zhoushiyu-context.xml,classpath:spring-mybatis.xml</param-value>
   </context-param>
   
   <listener>

@@ -4,11 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zhoushiyu.dao.UserDao;
+import com.zhoushiyu.dao.UserMapper;
 import com.zhoushiyu.domain.User;
 
 @Service
 public class UserService {
-	private UserDao userDao;
+	/*private UserDao userDao;
 	
 	@Autowired
 	public void setUserDao(UserDao userDao) {
@@ -26,5 +27,18 @@ public class UserService {
 	
 	public boolean deleteUser(User user) {
 		return userDao.delete(user) > 0;
-	}
+	}*/
+    
+    
+   /*
+    *  π”√mybatis
+    */
+    @Autowired
+    private UserMapper userMapper;
+    
+    public User getUserMsg(String userName, String userPassword) {
+        User user = userMapper.getUserMsg(userName, userPassword);
+        return user;
+    }
+    
 }

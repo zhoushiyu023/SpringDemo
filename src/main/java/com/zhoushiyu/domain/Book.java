@@ -1,5 +1,6 @@
 package com.zhoushiyu.domain;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class Book {
@@ -7,7 +8,7 @@ public class Book {
 	private String bookName ;
 	private String authorName;
 	private int hasNumber;
-	private LocalDate updateTime;
+	private Date updateTime;
 	public int getBookID() {
 		return bookID;
 	}
@@ -32,10 +33,10 @@ public class Book {
 	public void setHasNumber(int hasNumber) {
 		this.hasNumber = hasNumber;
 	}
-	public LocalDate getUpdateTime() {
+	public Date getUpdateTime() {
 		return updateTime;
 	}
-	public void setUpdateTime(LocalDate updateTime) {
+	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 	

@@ -14,13 +14,13 @@ import com.zhoushiyu.domain.User;
 
 @Repository
 public class ReaderDao {
-	private JdbcTemplate jdbcTemplate;
+	/*private JdbcTemplate jdbcTemplate;
 	@Autowired //自动注入JdbcTemplate 的 bean
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-	
-	public Reader getReaderMsgByUserName(String userName) {
+	*/
+	/*public Reader getReaderMsgByUserName(String userName) {
 		final Reader reader = new Reader();
 		String sqlstr = " SELECT * FROM reader WHERE userName = ? ";
 		jdbcTemplate.query(sqlstr, new Object[] {userName}, new RowCallbackHandler() {
@@ -57,5 +57,5 @@ public class ReaderDao {
 				ps.setInt(2, reader.getId());
 			}  
 		});
-	}
+	}*/
 }
