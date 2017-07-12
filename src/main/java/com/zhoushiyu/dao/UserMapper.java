@@ -1,5 +1,6 @@
 package com.zhoushiyu.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.zhoushiyu.domain.User;
@@ -21,20 +22,20 @@ public interface UserMapper {
      * @param userPassword
      * @return
      */
-    User getUserMsg(String userName, String userPassword);
+    User getUserMsg(@Param("userName") String userName);
     
     /**
      * 新增用户
      * @param user
      * @return
      */
-    int addUser(User user);
+    int addUser(@Param("userName") String userName, @Param("userPassword")String userPassword);
     
     /**
      * 删除用户
      * @param user
      * @return
      */
-    int deleteUser(User user);
+    int deleteUser(@Param("user") User user);
     
 }

@@ -21,17 +21,21 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
 	}
 	
 	@Test
-	public void getUserMsg() {
-		System.out.println(userService.getUserMsg("zhoushiyu", "123456"));
-		/*User user = new User();
-		user.setUserName("zhoushiyu");
-		if(userService.addUser(user)) {
-			System.out.print(true);
-		}*/
-		
-		//bookDao.add(); 
-		//assert(bookDao==null);
+	public void testAddandget() {
+	    int i = userService.addUser(null, null);
+	    System.out.println(i);
+	    
+		User user = userService.getUserMsg("zhoushiyu");
+		if(user != null) {
+		    System.out.println(user);
+		}
+
 	}
+	/*@Test
+	public void testDelete() {
+	    User user = userService.getUserMsg("zhoushiyu");
+	    userService.deleteUser(user);
+	}*/
 	
 }
  

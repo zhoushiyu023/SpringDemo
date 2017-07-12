@@ -1,6 +1,7 @@
 package com.zhoushiyu.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.zhoushiyu.dao.UserDao;
@@ -36,9 +37,27 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
     
-    public User getUserMsg(String userName, String userPassword) {
-        User user = userMapper.getUserMsg(userName, userPassword);
-        return user;
+    public User getUserMsg(String userName) {
+        User user = userMapper.getUserMsg(userName);
+        if(user != null && user.getUserID() != -1) {
+            return user;
+        }
+        return null;
+    }
+    
+    public int addUser(String userName, String userPassword) {
+        int userID;
+        try {
+            userID = userMapper.addUser(userName, userPassword); 
+        } catch (DataIntegrityViolationException e) {
+            userID = -1;
+        }
+        return userID;
+    }
+    
+    public int deleteUser(User user) {
+        int i = userMapper.deleteUser(user);
+        return i;
     }
     
 }

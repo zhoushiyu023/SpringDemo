@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhoushiyu.dao.UserMapper">
+
+	<resultMap id="BaseResultMap" type="com.zhoushiyu.domain.User">
+		<id column="user_id" property="userID" jdbcType="INTEGER" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="user_password" property="userPassword"
+			jdbcType="VARCHAR" />
+		<result column="has_number" property="hasNumber" jdbcType="INTEGER" />
+		<result column="update_time" property="updateTime" jdbcType="DATE" />
+	</resultMap>
+    
+    <sql id = "userproperty">
+        user_id, user_name, user_password, has_number, update_time
+    </sql>
+    
+	<select id = "getUserMsg" resultMap = "BaseResultMap">
+		SELECT 
+        <include refid = "userproperty" />
+        FROM zsy_user WHERE user_name =
+		#{userName,jdbcType=VARCHAR}
+	</select>
+
+	<insert id = "addUser">
+		<trim prefix = "INSERT INTO zsy_user (" suffix=")" suffixOverrides=",">
+		  <if test = "userName != null"> user_name, </if>
+		  <if test = "userPassword != null">user_password</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+		   <if test = "userName != null">#{userName,jdbcType=VARCHAR},</if>
+          <if test = "userPassword != null">#{userPassword,jdbcType=VARCHAR}</if>
+		</trim>	
+	</insert>
+
+	<delete id="deleteUser">
+		DELETE FROM zsy_user
+		WHERE user_id= #{user.userID}
+	</delete>
+
+</mapper>

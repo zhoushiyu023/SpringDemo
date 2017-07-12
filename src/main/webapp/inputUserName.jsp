@@ -15,6 +15,7 @@
 	<form action="<c:url value="/userMsg.html"/>" method="post">
 		用户姓名：
 		<input type="text" name="userName">
+		<input type="text" name="userPassword">
 		<input type="submit" value="登录"/>
 	</form>
 </body>
